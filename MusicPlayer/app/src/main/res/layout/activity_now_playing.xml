@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NowPlaying"
+    tools:context=".NowPlayingActivity"
     android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
@@ -23,5 +23,26 @@
         android:paddingTop="@dimen/song_padding"
         android:paddingRight="@dimen/song_padding"
         android:paddingBottom="@dimen/song_padding"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/now_playing_song_tracklength"
+        android:paddingLeft="@dimen/third_list_margin"
+        android:paddingTop="@dimen/song_padding"
+        android:paddingRight="@dimen/song_padding"
+        android:paddingBottom="@dimen/song_padding"/>
+
+    <TextView
+        android:id="@+id/song_playing_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingLeft="@dimen/third_list_margin"
+        android:drawableLeft="@drawable/song_play_24px"
+        android:drawablePadding="@dimen/text_drawable_padding"
+        android:text="@string/play"
+        android:textColor="@color/textColor"
+        android:background="@color/songBGOneColor"
+         />
 
 </LinearLayout>

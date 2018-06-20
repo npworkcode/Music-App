@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.widget.TextViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,12 +21,10 @@ public class SongAdapter extends ArrayAdapter<Song>
     Album album;
 
 
-
-
     public SongAdapter(Context context, ArrayList<Song> songs)
     {
         super(context, 0, songs);
-        if (songs.size() >=1 )
+        if (songs.size() >= 1)
         {
             artist = songs.get(0).getmArtist();
             album = songs.get(0).getmAlbum();
@@ -61,7 +58,7 @@ public class SongAdapter extends ArrayAdapter<Song>
             @Override
             public void onClick(View v)
             {
-                Intent i = new Intent(context, NowPlaying.class);
+                Intent i = new Intent(context, NowPlayingActivity.class);
                 i.putExtra(SELECTED_SONG, song);
                 i.putExtra(SELECTED_ARTIST, songArtist);
                 i.putExtra(SELECTED_ALBUM, songAlbum);
@@ -75,11 +72,11 @@ public class SongAdapter extends ArrayAdapter<Song>
                 context.getResources().getDimensionPixelSize(R.dimen.song_padding)); // bottom
         if ((position % 2) == 0)
         {
-             tvSong.setBackgroundResource(R.color.songBGOneColor);
+            tvSong.setBackgroundResource(R.color.songBGOneColor);
         }
         else
         {
-             tvSong.setBackgroundResource(R.color.songBGTwoColor);
+            tvSong.setBackgroundResource(R.color.songBGTwoColor);
         }
         return convertView;
     }

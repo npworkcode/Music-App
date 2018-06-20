@@ -2,18 +2,12 @@ package com.example.npmain.musicplayer;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
+import android.os.Bundle;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -30,7 +24,11 @@ public class AlbumActivity extends AppCompatActivity
         Artist artist =  this.getIntent().getParcelableExtra(SELECTED_ARTIST);
         initializeUI(artist);
     }
-
+    /*
+    This method initializes the UI, by placing the Current Artist, and displaying
+    all albums and songs of the Artist
+    @param artist Artist - the Artist selected from the MusicLibrary Activity
+     */
     private void initializeUI(Artist artist)
     {
         albumLayout = findViewById(R.id.album_list);
@@ -49,7 +47,7 @@ public class AlbumActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent i = new Intent(context, MusicLibrary.class);
+                Intent i = new Intent(context, MusicLibraryActivity.class);
                 context.startActivity(i);
             }
         });
@@ -61,6 +59,15 @@ public class AlbumActivity extends AppCompatActivity
 
         for (Album album : artist.getmAlbums())
         {
+            // Create a new LinearLayout to hold the Album Name TextView and the ListView of Songs
+            LinearLayout newLayout = new LinearLayout(context);
+            albumLayout.addView(newLayout);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
+            newLayout.setLayoutParams(params);
+            newLayout.setOrientation(LinearLayout.VERTICAL);
+
            TextView albumTextView = new TextView(context);
             albumTextView.setText(album.getmAlbumName());
             TextViewCompat.setTextAppearance(albumTextView, R.style.AlbumStyle);
@@ -70,7 +77,7 @@ public class AlbumActivity extends AppCompatActivity
                     this.getResources().getDimensionPixelSize(R.dimen.second_list_margin), // right
                     this.getResources().getDimensionPixelSize(R.dimen.second_list_margin)); // bottom
 
-            albumLayout.addView(albumTextView);
+            newLayout.addView(albumTextView);
             ArrayList<Song> songs = album.getmSongs();
             if (songs.size() >= 1)
             {
@@ -78,14 +85,10 @@ public class AlbumActivity extends AppCompatActivity
                 songs.get(0).setmAlbum(album);
             }
             SongAdapter songAdapter = new SongAdapter(context, songs);
-            // ListView songListView = (ListView) LayoutInflater.from(context).inflate(R.layout.listview, null, false);
             ListView songListView = new ListView(context);
-            albumLayout.addView(songListView);
             songListView.setAdapter(songAdapter);
-
-
-
-        }
+            newLayout.addView(songListView);
+         }
 
 
 
