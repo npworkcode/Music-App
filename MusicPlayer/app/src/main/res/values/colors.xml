@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="textColor">#FFFFFF</color>
+    <color name="artistBGOneColor">#192E5B</color>
+    <color name="artistBGTwoColor">#1D65A6</color>
+    <color name="albumBGColor">#72A2C0</color>
+    <color name="songBGOneColor">#00743F</color>
+    <color name="songBGTwoColor">#F2A104</color>
+</resources>

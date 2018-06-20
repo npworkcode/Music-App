@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="first_list_margin">12dp</dimen>
+    <dimen name="second_list_margin">16dp</dimen>
+    <dimen name="third_list_margin">28dp</dimen>
+    <dimen name="song_padding">10dp</dimen>
+    <dimen name="artist_text_size">24sp</dimen>
+    <dimen name="album_text_size">20sp</dimen>
+    <dimen name="song_text_size">16sp</dimen>
+</resources>
